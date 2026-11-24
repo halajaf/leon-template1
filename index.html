@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leon Template</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;800&display=swap">
+<style>
+:root{--main:#10cab7;--second:#2c4755;--pad:60px;--bg:#fff;--alt:#f6f6f6;--text:#222;--muted:#777;--ghost:#ebeced;--card:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15191c;--alt:#1d2327;--text:#e8eaeb;--muted:#a0a8ad;--ghost:#2a3238;--card:#1d2327;--second:#3d5c6e;color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:"Work Sans",sans-serif;background:var(--bg);color:var(--text)}
+.container{padding:0 15px;margin:auto;max-width:1170px}
+.sh{color:var(--ghost);font-size:100px;text-align:center;font-weight:800;letter-spacing:-3px;margin:0}
+.sh+p{margin:-30px 0 0;font-size:20px;text-align:center;color:var(--muted)}
+@media(max-width:767px){.sh{font-size:60px}.sh+p{margin-top:-20px}}
+.header{padding:20px}
+.header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{width:60px;height:60px;border-radius:50%;background:var(--main);color:#fff;display:grid;place-items:center;font-weight:800;font-size:28px}
+.links{position:relative;padding-bottom:10px}
+.icon{width:30px;display:flex;flex-wrap:wrap;justify-content:flex-end}
+.icon span{background:var(--text);margin-bottom:5px;height:2px;width:100%}
+.icon span:nth-child(2){width:60%;transition:.5s}
+.links:hover .icon span:nth-child(2){width:100%}
+.links ul{list-style:none;margin:0;padding:0;background:var(--alt);position:absolute;right:0;min-width:200px;top:calc(100% + 5px);display:none;z-index:1}
+.links ul::before{content:"";border:10px solid transparent;border-bottom-color:var(--alt);position:absolute;right:5px;top:-20px}
+.links:hover ul,.links:focus-within ul{display:block}
+.links ul a{display:block;padding:15px;text-decoration:none;color:var(--text);transition:.5s}
+.links ul a:hover{padding-left:25px}
+.links li:not(:last-child) a{border-bottom:1px solid var(--ghost)}
+.landing{background:linear-gradient(135deg,#2c4755,#10cab7);min-height:calc(100vh - 100px);display:grid;place-items:center;text-align:center;padding:20px}
+.landing h1{margin:0;font-size:50px;color:#fff}
+.landing p{font-size:19px;line-height:1.8;color:#fff;max-width:320px}
+.features,.portfolio,.contact{background:var(--alt)}
+.features,.services,.portfolio,.about,.contact{padding:var(--pad) 0}
+.about{padding-bottom:calc(var(--pad) + 60px)}
+.features .container,.services-content,.portfolio-content{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}
+.feat{padding:20px;text-align:center}
+.ico{color:var(--main);font-size:40px}
+.feat h3{font-weight:800;margin:30px 0}
+.feat p{line-height:1.8;color:var(--muted);font-size:17px}
+.services-content{margin-top:100px}
+.srv{display:flex;margin-bottom:40px;gap:15px}
+.srv .ico{flex-basis:60px;font-size:32px}
+.srv .text{flex:1}.srv h3{margin:0 0 20px}
+.srv p{color:var(--muted);font-weight:300;line-height:1.6;margin:0}
+@media(max-width:767px){.srv{flex-direction:column;text-align:center}}
+.image{text-align:center;position:relative}
+.image::before{content:"";background:var(--second);width:100px;height:calc(100% + 100px);top:-50px;position:absolute;right:0;z-index:-1}
+.ph{width:260px;max-width:100%;aspect-ratio:2/3;margin:auto;background:linear-gradient(160deg,var(--main),var(--second))}
+.portfolio-content{margin-top:80px}
+.card{background:var(--card)}
+.card .ph{width:100%;aspect-ratio:4/3}
+.card .info{padding:20px}.card h3{margin:0}
+.card p{color:var(--muted);line-height:1.6;margin:10px 0 0}
+.about-content{margin-top:100px;display:flex;flex-wrap:wrap;justify-content:space-between}
+.about-content .image{width:250px;height:375px}
+.about-content .image::before{background:var(--ghost);width:120px;height:calc(100% + 80px);top:-40px;left:-20px;right:auto}
+.about-content .image::after{content:"";position:absolute;top:-40px;width:120px;height:300px;border-left:80px solid var(--main);border-bottom:80px solid var(--main);z-index:-1;right:-150px}
+.about-content .image .ph{width:100%;height:100%}
+@media(max-width:991px){.about-content .image{margin:0 auto 60px}.about-content .image::before,.about-content .image::after{display:none}}
+.about .text{flex-basis:calc(100% - 500px);min-width:280px}
+.about .text p:first-of-type{font-weight:700;line-height:2;margin-bottom:60px}
+.about hr{width:50%;display:inline-block;border-color:var(--main)}
+.about .text p:last-of-type{line-height:2;color:var(--muted)}
+.contact .info{padding:var(--pad) 0;text-align:center}
+.label{font-size:35px;font-weight:800;color:var(--second);letter-spacing:-2px;margin-bottom:15px}
+.link{display:block;font-size:35px;font-weight:800;color:var(--main);text-decoration:none}
+.social{display:flex;justify-content:center;gap:12px;margin-top:20px;font-size:16px}
+.social b{color:var(--second)}
+@media(max-width:767px){.label,.link{font-size:25px}}
+.footer{background:var(--second);color:#fff;padding:30px 10px;text-align:center;font-size:18px}
+.footer span{font-weight:700;color:var(--main)}
+</style>
+</head>
+<body>
+<div class="header"><div class="container">
+<div class="logo">L</div>
+<div class="links" tabindex="0"><span class="icon"><span></span><span></span><span></span></span>
+<ul><li><a href="#services">Services</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+</div></div>
+
+<div class="landing"><div><h1>Hello There</h1><p>We are Leon – Super Creative &amp; Minimal Agency Web Template</p></div></div>
+
+<div class="features"><div class="container">
+<div class="feat"><div class="ico">✦</div><h3>Tell Us Your Idea</h3><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto aliquam dolor, ut dicta totam facere?</p></div>
+<div class="feat"><div class="ico">◍</div><h3>Your Product IS Worldwide</h3><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto aliquam dolor, ut dicta totam facere?</p></div>
+<div class="feat"><div class="ico">◆</div><h3>We Will Do The Work</h3><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto aliquam dolor, ut dicta totam facere?</p></div>
+</div></div>
+
+<div class="services" id="services"><div class="container">
+<h2 class="sh">Services</h2><p>Don't be busy, be productive</p>
+<div class="services-content">
+<div>
+<div class="srv"><div class="ico">✎</div><div class="text"><h3>Graphic Design</h3><p>Visual communication and problem-solving using typography, photography and illustration.</p></div></div>
+<div class="srv"><div class="ico">◇</div><div class="text"><h3>UI &amp; UX</h3><p>Enhancing user satisfaction by improving usability, accessibility and pleasure of interaction.</p></div></div>
+</div>
+<div>
+<div class="srv"><div class="ico">⌘</div><div class="text"><h3>Web Development</h3><p>The work involved in developing a website for the Internet or an intranet.</p></div></div>
+<div class="srv"><div class="ico">▣</div><div class="text"><h3>Web Design</h3><p>Many different skills and disciplines in the production and maintenance of websites.</p></div></div>
+</div>
+<div class="image"><div class="ph"></div></div>
+</div></div></div>
+
+<div class="portfolio" id="portfolio"><div class="container">
+<h2 class="sh">Portfolio</h2><p>If you do it right, it will last forever.</p>
+<div class="portfolio-content">
+<div class="card"><div class="ph"></div><div class="info"><h3>Project Here</h3><p>My creative ability is very difficult to measure because it can manifest in so many surprising ways.</p></div></div>
+<div class="card"><div class="ph"></div><div class="info"><h3>Project Here</h3><p>My creative ability is very difficult to measure because it can manifest in so many surprising ways.</p></div></div>
+<div class="card"><div class="ph"></div><div class="info"><h3>Project Here</h3><p>My creative ability is very difficult to measure because it can manifest in so many surprising ways.</p></div></div>
+</div></div></div>
+
+<div class="about" id="about"><div class="container">
+<h2 class="sh">About</h2><p>Less is more work</p>
+<div class="about-content">
+<div class="image"><div class="ph"></div></div>
+<div class="text">
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia repudiandae explicabo recusandae officia inventore.</p>
+<hr>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi recusandae doloribus ullam est quae quia nesciunt nihil autem impedit.</p>
+</div></div></div></div>
+
+<div class="contact" id="contact"><div class="container">
+<h2 class="sh">Contact</h2><p>We are born to create</p>
+<div class="info">
+<p class="label">Feel free to drop us a line at:</p>
+<a href="mailto:leonagency@mail.com?subject=Contact" class="link">leonagency@mail.com</a>
+<div class="social">Find Us On Social Networks <b>YouTube</b> <b>Facebook</b> <b>Twitter</b></div>
+</div></div></div>
+
+<div class="footer">&copy; 2021 <span>Leon</span> All Rights Reserved</div>
+</body>
+</html>
